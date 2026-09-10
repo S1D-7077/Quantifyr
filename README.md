@@ -1,207 +1,186 @@
 # Quantifyr
 
-> **AI-powered business analytics and decision support for modern businesses.**
+### AI-powered business analytics and decision intelligence
 
-Quantifyr is an intelligent business management and analytics platform designed to help businesses understand their operations, track performance, and make better decisions using data and AI.
+Quantifyr is a full-stack business analytics platform designed to help businesses understand their performance, monitor operations, and turn business data into actionable insights.
 
-The project combines a modern React dashboard with a Node.js backend, local data persistence, authentication, analytics, and Google Gemini-powered intelligence.
+It combines **business metrics, analytics, automation, and AI** into a single dashboard.
 
----
-
-## 🚧 Project Status
-
-**Active Development**
-
-Quantifyr is currently being developed as an ongoing project.
-
-The application is **not currently hosted publicly**. Development and testing are performed locally, with the source code maintained on GitHub.
-
-> Features, architecture, and database structure are subject to change during development.
+> 🚧 **Quantifyr is currently under active development.**
 
 ---
 
-## 🎯 Vision
+## Overview
 
-Small and growing businesses often have data spread across different systems, making it difficult to understand what is actually happening in the business.
+Businesses generate large amounts of data across sales, orders, marketing, customers, and operations.
 
-Quantifyr aims to bring important business information into a single platform and turn raw operational data into actionable insights.
+The problem isn't a lack of data.
 
-### The goal
+**The problem is understanding what the data actually means.**
 
-**Data → Analytics → AI Insights → Better Decisions**
+Quantifyr aims to solve this by bringing business data into one platform and using analytics and AI to answer questions such as:
+
+* How is the business performing?
+* Which areas are improving or declining?
+* What is driving changes in revenue?
+* Which campaigns are performing best?
+* Where are potential problems appearing?
+* What should the business focus on next?
+
+### Core idea
+
+```text
+                    BUSINESS DATA
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+       Orders        Campaigns       Stores
+          │              │              │
+          └──────────────┼──────────────┘
+                         ▼
+                    ANALYTICS
+                         │
+                         ▼
+                   AI ANALYSIS
+                         │
+                         ▼
+              ACTIONABLE INSIGHTS
+```
 
 ---
 
-## ✨ Core Features
+## Features
 
 ### 📊 Business Dashboard
 
-* Business performance overview
-* Key performance indicators
-* Revenue and sales tracking
-* Operational metrics
+Centralized overview of important business metrics and performance indicators.
+
+* Revenue tracking
+* Sales performance
+* Business KPIs
+* Performance trends
 * Visual analytics
 
 ### 🏪 Store Management
 
-* Manage business/store information
-* Track store-level performance
-* Monitor operational activity
-
-### 📈 Campaign Analytics
-
-* Create and manage campaigns
-* Track campaign performance
-* Analyze marketing metrics
-* Compare campaign results
+Manage and monitor individual stores and their performance.
 
 ### 🛒 Order Management
 
-* Track orders
-* Monitor order activity
-* Analyze sales performance
+Track orders and use sales data for business analysis.
 
-### 🔔 Alerts & Monitoring
+### 📣 Campaign Analytics
 
-* Business alerts
-* Performance notifications
-* Identify areas requiring attention
+Monitor marketing campaigns and evaluate their performance using measurable business metrics.
 
-### 🤖 AI-Powered Insights
+### 🔔 Alerts
 
-Powered by Google's Gemini API.
+Surface important changes and potential issues that require attention.
 
-Quantifyr is designed to use AI to help transform business data into useful insights rather than simply displaying raw numbers.
+### 🤖 AI Insights
 
-Potential capabilities include:
+Quantifyr integrates **Google Gemini** to provide AI-powered analysis of business information.
 
-* Performance analysis
-* Business recommendations
-* Trend identification
-* Anomaly detection
-* Natural-language explanations of business metrics
+The goal is not to build another generic chatbot.
+
+Instead, the AI layer is designed to understand the application's business data and provide useful explanations, observations, and recommendations.
 
 ---
 
-## 🛠️ Tech Stack
+# Tech Stack
 
-### Frontend
-
-* **React**
-* **TypeScript**
-* **Vite**
-* **React Router**
-* **Tailwind CSS**
-* **Lucide React**
-* **Recharts**
-* **Motion**
-
-### Backend
-
-* **Node.js**
-* **Express**
-* **TypeScript**
-
-### Database
-
-* **SQLite**
-* **better-sqlite3**
-
-### Authentication & Security
-
-* **JWT**
-* **bcrypt**
-
-### Artificial Intelligence
-
-* **Google Gemini API**
-* `@google/genai`
+| Layer             | Technology         |
+| ----------------- | ------------------ |
+| Frontend          | React + TypeScript |
+| Build Tool        | Vite               |
+| Styling           | Tailwind CSS       |
+| Charts            | Recharts           |
+| Backend           | Node.js + Express  |
+| Database          | SQLite             |
+| Database Driver   | better-sqlite3     |
+| Authentication    | JWT                |
+| Password Security | bcrypt             |
+| AI                | Google Gemini API  |
 
 ---
 
-## 🏗️ Architecture
+# Architecture
 
-Quantifyr currently follows a full-stack architecture:
+Quantifyr currently uses a full-stack architecture:
 
 ```text
-┌──────────────────────────────┐
-│          React UI            │
-│       Vite + TypeScript      │
-└──────────────┬───────────────┘
-               │
-               │ HTTP / API
-               ▼
-┌──────────────────────────────┐
-│       Express Backend        │
-│          Node.js             │
-└──────────────┬───────────────┘
-               │
-       ┌───────┴────────┐
-       ▼                ▼
-┌─────────────┐   ┌──────────────┐
-│   SQLite    │   │ Gemini API   │
-│  Database   │   │  AI Engine   │
-└─────────────┘   └──────────────┘
+┌───────────────────────────────┐
+│           Frontend            │
+│       React + TypeScript      │
+│            Vite               │
+└───────────────┬───────────────┘
+                │
+                │ REST API
+                ▼
+┌───────────────────────────────┐
+│           Backend             │
+│       Node.js + Express       │
+└───────────────┬───────────────┘
+                │
+        ┌───────┴────────┐
+        ▼                ▼
+┌──────────────┐  ┌──────────────┐
+│    SQLite    │  │   Gemini     │
+│   Database   │  │     API      │
+└──────────────┘  └──────────────┘
 ```
 
-The architecture may evolve as the project grows.
+The architecture is intentionally simple during the development phase and will evolve as Quantifyr moves toward production.
 
 ---
 
-## 📁 Project Structure
+# Project Structure
 
 ```text
 Quantifyr/
 │
-├── src/
+├── src/                    # React frontend
 │   ├── components/
 │   ├── pages/
 │   ├── services/
-│   ├── ...
 │   └── ...
 │
-├── server.ts
-├── index.html
+├── server.ts               # Express backend
+├── package.json
 ├── vite.config.ts
 ├── tsconfig.json
-├── package.json
-├── package-lock.json
 │
-├── .env.example
+├── .env.example            # Environment variable template
 ├── .gitignore
-├── metadata.json
 └── README.md
 ```
 
-> The project structure is evolving as new features and backend modules are introduced.
+> The structure is actively evolving as new features are added.
 
 ---
 
-## 🚀 Getting Started
+# Getting Started
 
-### Prerequisites
+## Requirements
 
 Make sure you have:
 
-* [Node.js](https://nodejs.org/) installed
-* npm
-* A Google Gemini API key
+* **Node.js 18+**
+* **npm**
+* A **Google Gemini API key**
 
 ---
 
-### 1. Clone the repository
+## 1. Clone the repository
 
 ```bash
 git clone https://github.com/S1D-7077/Quantifyr.git
-```
-
-```bash
 cd Quantifyr
 ```
 
 ---
 
-### 2. Install dependencies
+## 2. Install dependencies
 
 ```bash
 npm install
@@ -209,25 +188,19 @@ npm install
 
 ---
 
-### 3. Configure environment variables
+## 3. Configure environment variables
 
-Create a local environment file:
-
-```bash
-.env.local
-```
-
-Add:
+Create a `.env.local` file:
 
 ```env
 GEMINI_API_KEY=your_api_key_here
 ```
 
-**Never commit your API key to GitHub.**
+Never commit your API key to GitHub.
 
 ---
 
-### 4. Start the development server
+## 4. Start the development server
 
 ```bash
 npm run dev
@@ -235,184 +208,219 @@ npm run dev
 
 The application will start locally.
 
-Open the local URL displayed in your terminal.
+Open the local URL shown in the terminal.
 
 ---
 
-## 🧪 Available Scripts
+# Development
 
-| Command           | Description                     |
-| ----------------- | ------------------------------- |
-| `npm run dev`     | Start the development server    |
-| `npm run build`   | Build the frontend              |
-| `npm run preview` | Preview the production frontend |
-| `npm run lint`    | Run TypeScript checks           |
-| `npm run clean`   | Remove the build output         |
+Quantifyr is currently designed for **local development**.
 
----
+The current development workflow is:
 
-## 🔐 Environment Variables
-
-Quantifyr uses environment variables for sensitive configuration.
-
-Example:
-
-```env
-GEMINI_API_KEY=
+```text
+Code
+  ↓
+Local Development
+  ↓
+Test
+  ↓
+Git Commit
+  ↓
+GitHub
 ```
 
-Keep your actual `.env.local` file out of version control.
+The project is intentionally not publicly hosted while the core product and architecture are still being developed.
 
 ---
 
-## 🗄️ Database
+# Database
 
 Quantifyr currently uses **SQLite** with `better-sqlite3`.
 
-SQLite is being used during the development phase because it provides a simple local database without requiring a separate database server.
+SQLite is useful during development because it:
 
-As Quantifyr moves toward production, the database architecture may transition to a server-based relational database such as PostgreSQL.
+* Requires no separate database server
+* Is simple to set up
+* Works well for local development
+* Makes experimentation fast
+
+A production deployment will likely require a more scalable database architecture, such as **PostgreSQL**.
 
 ---
 
-## 🧠 AI Integration
+# AI
 
-Quantifyr integrates Google's Gemini API to provide AI-powered business intelligence.
+Quantifyr uses Google's **Gemini API** for AI functionality.
 
-The long-term objective is for the AI layer to work alongside the application's structured business data rather than acting as a generic chatbot.
-
-Example workflow:
+The planned AI architecture is:
 
 ```text
 Business Data
       ↓
 Data Processing
       ↓
-Analytics
+Business Metrics
       ↓
 Gemini
       ↓
-AI Interpretation
+Contextual Analysis
       ↓
-Business Recommendation
+Insights & Recommendations
 ```
+
+Potential AI capabilities include:
+
+* Business performance analysis
+* Natural-language explanations
+* Trend detection
+* Anomaly identification
+* Campaign analysis
+* Automated business summaries
+* Decision recommendations
+
+The AI functionality is still under development.
 
 ---
 
-## 🗺️ Roadmap
+# Roadmap
 
-### Phase 1 — Foundation
+## Phase 1 — Foundation
 
-* [x] React application
-* [x] Vite development environment
+* [x] React frontend
+* [x] Vite setup
 * [x] Express backend
 * [x] SQLite database
-* [x] Authentication foundation
+* [x] Authentication
 * [x] Dashboard foundation
 * [x] Gemini integration
 
-### Phase 2 — Core Product
+## Phase 2 — Product Development
 
-* [ ] Complete business management
-* [ ] Complete store management
-* [ ] Complete order management
-* [ ] Campaign analytics
-* [ ] Advanced dashboard metrics
-* [ ] Alert system
-* [ ] Improved data validation
-* [ ] Backend restructuring
+* [ ] Complete dashboard
+* [ ] Store management
+* [ ] Order management
+* [ ] Campaign management
+* [ ] Advanced analytics
+* [ ] Alerts and notifications
+* [ ] Improved API architecture
+* [ ] Better data validation
 
-### Phase 3 — Intelligence
+## Phase 3 — AI Intelligence
 
 * [ ] AI business analyst
-* [ ] Automated performance summaries
+* [ ] Automated business reports
+* [ ] AI-powered recommendations
 * [ ] Anomaly detection
 * [ ] Trend analysis
-* [ ] AI-generated recommendations
-* [ ] Natural-language analytics
+* [ ] Natural-language querying
+* [ ] Predictive analytics
 
-### Phase 4 — Production Readiness
+## Phase 4 — Production
 
-* [ ] Production database
-* [ ] Improved authentication security
+* [ ] PostgreSQL migration
+* [ ] Production authentication
 * [ ] API documentation
 * [ ] Automated testing
-* [ ] Error monitoring
+* [ ] Security audit
 * [ ] Performance optimization
+* [ ] Monitoring and logging
 * [ ] Production deployment
 * [ ] Custom domain
 
 ---
 
-## 🔒 Security
+# Security
 
-Quantifyr is currently a development project.
+Quantifyr is currently a development project and should **not be considered production-ready**.
 
-Before production deployment, additional security work will be required, including:
+Before handling real business data, the application will need additional security work including:
 
 * Secure secret management
 * Authentication hardening
-* Authorization checks
+* Authorization
 * Input validation
 * Rate limiting
-* API security
+* API protection
 * Database security
-* Production logging
 * Dependency auditing
+* Error handling
+* Production logging
 
-**Do not use the current development configuration for handling real sensitive business data.**
+### Never commit secrets
 
----
+Do not commit:
 
-## 📌 Development Philosophy
+```text
+.env
+.env.local
+API keys
+JWT secrets
+Database credentials
+```
 
-Quantifyr is being built incrementally.
-
-The priority is:
-
-1. Build the core functionality
-2. Validate the product concept
-3. Improve the architecture
-4. Add AI capabilities
-5. Harden security
-6. Prepare for production
-
-The project will remain locally developed until the product is ready for deployment.
+Use `.env.example` to document required environment variables without exposing their values.
 
 ---
 
-## 🤝 Contributing
+# Current Status
 
-Quantifyr is currently a personal development project.
-
-Contribution guidelines may be added when the project reaches a more stable stage.
+| Area                  | Status                |
+| --------------------- | --------------------- |
+| Frontend              | 🟡 Active development |
+| Backend               | 🟡 Active development |
+| Database              | 🟡 Development        |
+| Authentication        | 🟡 Development        |
+| Analytics             | 🟡 Development        |
+| AI                    | 🟡 Development        |
+| Testing               | 🔴 Planned            |
+| Production deployment | 🔴 Not started        |
 
 ---
 
-## 📄 License
+# Future Vision
+
+Quantifyr is intended to evolve from a business dashboard into an **AI-powered decision intelligence platform**.
+
+The long-term goal is to move beyond:
+
+> **"Here are your numbers."**
+
+toward:
+
+> **"Here is what changed, why it changed, what it means, and what you should consider doing next."**
+
+---
+
+# Contributing
+
+Quantifyr is currently being developed as a personal project.
+
+Contribution guidelines will be introduced once the project reaches a more stable stage.
+
+---
+
+# License
 
 License information will be added as the project develops.
 
 ---
 
-## 👤 Author
+# Author
 
 **SID**
 
-GitHub: [@S1D-7077](https://github.com/S1D-7077)
+GitHub: **[@S1D-7077](https://github.com/S1D-7077)**
 
 ---
 
-## ⭐ Quantifyr
+<div align="center">
 
-**Turn business data into decisions.**
+### Quantifyr
 
+**Understand your business. Make better decisions.**
 
-View your app in AI Studio: https://ai.studio/apps/3c7e7005-9604-41d4-9bf1-5ca123ad8f15
-
-## Run Locally
-
-**Prerequisites:**  Node.js
+</div>
 
 
 1. Install dependencies:
